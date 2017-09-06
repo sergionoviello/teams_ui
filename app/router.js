@@ -7,6 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+
+  this.route('dashboard', { path: '/' }, function() {
+    this.route('teams', {resetNamespace: true});
+  });
 });
 
 export default Router;

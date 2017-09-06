@@ -3,7 +3,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'my-first-ember-app',
+    modulePrefix: 'teams_ui',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -46,6 +46,14 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV['ember-simple-auth'] = {
+    store: 'ember-simple-auth-session-store:local-storage',
+    authorizer: 'authorizer:custom',
+    routeAfterAuthentication: 'dashboard',
+    routeIfAlreadyAuthenticated: 'dashboard',
+    crossOriginWhitelist: ['http://localhost:3000/']
+};
 
   return ENV;
 };
